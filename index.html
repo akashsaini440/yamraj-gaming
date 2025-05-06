@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Yamraj Gaming - Welcome to Hell</title>
+
+  <!-- Security Headers -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; connect-src 'self';">
+  <meta http-equiv="Strict-Transport-Security" content="max-age=31536000; includeSubDomains; preload" />
+  <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+  <meta http-equiv="X-XSS-Protection" content="1; mode=block" />
+
+  <!-- Link to External Stylesheet -->
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- Navigation Buttons (Top Right) -->
+  <nav class="top-nav">
+    <a href="index.html">Home</a>
+    <a href="introduction.html">Introduction</a>
+    <a href="content.html">Content</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+
+  <!-- Background Video with Fallback -->
+  <div class="video-container">
+    <video class="background-video" autoplay muted loop playsinline>
+      <source src="hell2.mp4" type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
+  </div>
+
+  <!-- Fire Animation Video -->
+  <video class="fire-video" autoplay muted loop>
+    <source src="fire.mp4" type="video/mp4" />
+    Your browser does not support the video tag.
+  </video>
+
+  <!-- Header Section -->
+  <header>
+    <h1 class="fire-text">YAMRAJ GAMING</h1>
+  </header>
+
+  <!-- Main Content -->
+  <main>
+    <section id="intro">
+      <h2>Welcome to Hell</h2>
+      <p>Yamraj Gaming is your ultimate stop for intense, thrilling gameplay from the darkest corners of the gaming world. Prepare for an adventure like no other, where only the bravest dare to go!</p>
+    </section>
+
+    <section id="content">
+      <h2>Epic Content Awaits</h2>
+      <p>Prepare yourself for intense gaming challenges. From epic boss battles to the most horrific survival experiences, we bring you the best in horror, action, and adventure.</p>
+      <ul>
+        <li>Boss Battles</li>
+        <li>Survival Horror</li>
+        <li>Strategy Mastery</li>
+        <li>Adventurous Realms</li>
+      </ul>
+    </section>
+
+    <section id="contact">
+      <h2>Contact Us</h2>
+      <p>Reach out to the underworld! Whether it’s a collaboration or a burning question, we’re always ready to hear from you.</p>
+      <ul>
+        <li>Email: <a href="mailto:contact@yamrajgaming.com">contact@yamrajgaming.com</a></li>
+        <li>Follow us on social media:</li>
+        <li><a href="#">Facebook</a> | <a href="#">Instagram</a> | <a href="#">YouTube</a></li>
+      </ul>
+    </section>
+  </main>
+
+  <!-- Footer Section -->
+  <footer>
+    <p>&copy; 2025 Yamraj Gaming - Hell. All rights reserved.</p>
+  </footer>
+
+  <!-- Scroll Reveal Script -->
+  <script>
+    const sections = document.querySelectorAll("section");
+
+    function revealOnScroll() {
+      const trigger = window.innerHeight - 100;
+      sections.forEach((section, i) => {
+        const top = section.getBoundingClientRect().top;
+        if (top < trigger) {
+          section.style.animationDelay = `${i * 0.3}s`;
+          section.classList.add("visible");
+        }
+      });
+    }
+
+    window.addEventListener("scroll", revealOnScroll);
+    window.addEventListener("load", revealOnScroll);
+  </script>
+
+</body>
+</html>

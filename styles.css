@@ -1,0 +1,263 @@
+/* General Styles */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  color: white;
+  overflow-x: hidden;
+}
+
+.video-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -2;
+  background: url('fallback.jpg') no-repeat center center fixed;
+  background-size: cover;
+  overflow: hidden;
+}
+
+video.background-video,
+video.fire-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+video.background-video {
+  z-index: -2;
+}
+
+video.fire-video {
+  z-index: -1;
+  opacity: 0.5;
+}
+
+.top-nav {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 10;
+  display: flex;
+  gap: 15px;
+}
+
+.top-nav a {
+  text-decoration: none;
+  color: white;
+  font-size: 1em;
+  padding: 8px 14px;
+  border: 1px solid white;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  animation: glowButton 2.5s infinite;
+}
+
+.top-nav a:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+  transform: scale(1.05);
+}
+
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  flex-direction: column;
+  text-align: center;
+  z-index: 1;
+  animation: fadeIn 2s ease-in;
+}
+
+.fire-text {
+  font-size: 3em;
+  font-weight: bold;
+  text-transform: uppercase;
+  animation: flicker 2s infinite, pulse 3s infinite;
+  color: #fff;
+  text-shadow:
+    0 0 5px #ff3,
+    0 0 10px #f60,
+    0 0 20px #f00;
+}
+
+main {
+  position: relative;
+  z-index: 1;
+  margin: 50px auto;
+  width: 90%;
+  max-width: 1100px;
+  color: white;
+}
+
+section {
+  margin-bottom: 50px;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 1s ease;
+}
+
+section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+section:nth-of-type(odd) {
+  animation: slideInLeft 1s ease forwards;
+}
+
+section:nth-of-type(even) {
+  animation: slideInRight 1s ease forwards;
+}
+
+h2 {
+  font-size: 2.5em;
+  margin-bottom: 20px;
+  animation: zoomIn 1.2s ease-in-out;
+}
+
+p {
+  font-size: 1.2em;
+  line-height: 1.6;
+}
+
+footer {
+  position: fixed;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  width: 100%;
+  color: white;
+  font-size: 1em;
+  z-index: 1;
+  animation: slideUp 2s ease-in 1s forwards;
+  opacity: 0;
+}
+
+footer p {
+  margin: 5px;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+  .fire-text {
+    font-size: 2em;
+  }
+
+  .top-nav {
+    flex-direction: column;
+    top: 10px;
+    right: 10px;
+    gap: 10px;
+  }
+
+  .top-nav a {
+    font-size: 0.9em;
+    padding: 6px 12px;
+  }
+
+  h2 {
+    font-size: 2em;
+  }
+
+  p {
+    font-size: 1em;
+  }
+
+  video.background-video {
+    display: none;
+  }
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(100px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes zoomIn {
+  from {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes flicker {
+  0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+    opacity: 1;
+    text-shadow:
+      0 0 5px #fff,
+      0 0 10px #f00,
+      0 0 20px #f90,
+      0 0 30px #f00;
+  }
+  20%, 24%, 55% {
+    opacity: 0.4;
+    text-shadow: none;
+  }
+}
+
+@keyframes glowButton {
+  0% {
+    box-shadow: 0 0 5px #f00, 0 0 10px #f90, 0 0 15px #ff0;
+  }
+  50% {
+    box-shadow: 0 0 15px #ff0, 0 0 25px #f90, 0 0 35px #f00;
+  }
+  100% {
+    box-shadow: 0 0 5px #f00, 0 0 10px #f90, 0 0 15px #ff0;
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-60px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(60px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.05);
+  }
+}
